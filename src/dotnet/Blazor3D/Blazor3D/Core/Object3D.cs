@@ -8,8 +8,9 @@ namespace HomagGroup.Blazor3D.Core
     /// It provides functionality for manipulating objects in 3D space.</para>
     ///<para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></para>
     /// </summary>
-    public abstract class Object3D
+    public class Object3D
     {
+        public Object3D(){}
         protected Object3D(string type)
         {
             Type = type;
