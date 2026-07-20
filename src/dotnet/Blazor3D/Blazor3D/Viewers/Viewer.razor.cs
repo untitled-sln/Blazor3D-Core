@@ -89,7 +89,7 @@ namespace HomagGroup.Blazor3D.Viewers
 
                 bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
                     "import",
-                    "./_content/Blazor3D/js/bundle.js")
+                    "./_content/ThreeJsBlazor/js/bundle.js")
                 .AsTask();
 
                 if (UseDefaultScene && !Scene.Children.Any())
@@ -99,10 +99,10 @@ namespace HomagGroup.Blazor3D.Viewers
 
                 var json = JsonConvert.SerializeObject(new
                 {
-                    Scene = Scene,
-                    ViewerSettings = ViewerSettings,
-                    Camera = Camera,
-                    OrbitControls = OrbitControls,
+                    Scene,
+                    ViewerSettings,
+                    Camera,
+                    OrbitControls,
                 },
                 SerializationHelper.GetSerializerSettings());
 
@@ -118,7 +118,7 @@ namespace HomagGroup.Blazor3D.Viewers
         public async Task UpdateScene()
         {
             var json = JsonConvert.SerializeObject(Scene, SerializationHelper.GetSerializerSettings());
-            await bundleModule.InvokeVoidAsync("updateScene", json);
+            await bundleModule.InvokeVoidAsync("setScene", json);
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace HomagGroup.Blazor3D.Viewers
         /// Apply updated camera settings to viewer.
         /// </summary>
         /// <returns>Task</returns>
-        public async Task UpdateCamera(Camera camera)
+        public async Task SetCamera(Camera camera)
         {
             Camera = camera;
             var json = JsonConvert.SerializeObject(Camera, SerializationHelper.GetSerializerSettings());
@@ -159,11 +159,11 @@ namespace HomagGroup.Blazor3D.Viewers
         /// </summary>
         /// <param name="orbitControls">new orbit controls</param>
         /// <returns>Task</returns>
-        public async Task UpdateOrbitControls(OrbitControls orbitControls)
+        public async Task SetOrbitControls(OrbitControls orbitControls)
         {
             OrbitControls = orbitControls;
             var json = JsonConvert.SerializeObject(OrbitControls, SerializationHelper.GetSerializerSettings());
-            await bundleModule.InvokeVoidAsync("updateOrbitControls", json);
+            await bundleModule.InvokeVoidAsync("setOrbitControls", json);
         }
 
         [JSInvokable]

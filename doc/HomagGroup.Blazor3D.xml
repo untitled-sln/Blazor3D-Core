@@ -145,7 +145,7 @@
         </member>
         <member name="P:HomagGroup.Blazor3D.Controls.OrbitControls.EnableDamping">
             <summary>
-            If true, than damping enabled. Otherwise, damping disabled. Default is true
+            If true, then damping enabled. Otherwise, damping disabled. Default is true
             </summary>
         </member>
         <member name="F:HomagGroup.Blazor3D.Controls.OrbitControls.DampingFactor">
@@ -1926,7 +1926,7 @@
             <param name="lookAt">New <see cref="T:HomagGroup.Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
             <returns>Task</returns>
         </member>
-        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.UpdateCamera(HomagGroup.Blazor3D.Cameras.Camera)">
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.SetCamera(HomagGroup.Blazor3D.Cameras.Camera)">
             <summary>
             Apply updated camera settings to viewer.
             </summary>
@@ -1938,7 +1938,7 @@
             </summary>
             <returns>Task</returns>
         </member>
-        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.UpdateOrbitControls(HomagGroup.Blazor3D.Controls.OrbitControls)">
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.SetOrbitControls(HomagGroup.Blazor3D.Controls.OrbitControls)">
             <summary>
             Apply updated orbit controls to viewer.
             </summary>
